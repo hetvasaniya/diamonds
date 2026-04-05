@@ -12,14 +12,16 @@ with open("./model.pkl", "rb") as f:
 
 with open("./columns.pkl", "rb") as f:
     columns = pickle.load(f)
-
+@app.route("/")
+def home():
+    return "API Running"
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.json
 
     # Create dataframe with all zeros
     df = pd.DataFrame(columns=columns)
-    df.loc[0] = 0
+    df.loc[0] = 0.0
 
     # Numeric columns
     numeric_cols = ["carat", "depth", "table", "x", "y", "z"]
