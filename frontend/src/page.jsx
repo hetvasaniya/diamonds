@@ -30,13 +30,13 @@ const page = () => {
       clarity: form.clarity,
     };
 
-    const res = await fetch("https://diamonds-price-prediction.onrender.com/predict", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(preparedData),
-    });
+   const res = await fetch("https://diamonds-price-prediction.onrender.com/predict", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(preparedData),
+});
 
     const data = await res.json();
 
